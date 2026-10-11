@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>小卡漫劇場：皮皮與小怪獸的日常</title>
+    <style>
+        body {
+            background-color: #282c34;
+            color: white;
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            color: #61dafb;
+            margin-bottom: 10px;
+        }
+        /* 大螢幕卡通劇場舞臺 (850px x 480px) */
+        .stage {
+            width: 850px;
+            height: 480px;
+            background: linear-gradient(to bottom, #87ceeb, #e0f6ff);
+            border: 4px solid #333;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        /* 地面裝飾 */
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 90px;
+            background-color: #7cfc00;
+            border-top: 4px solid #228b22;
+        }
+        /* 角色：主角皮皮 */
+        .character-pipi {
+            position: absolute;
+            bottom: 80px;
+            left: 100px;
+            font-size: 60px;
+            transition: all 0.5s ease;
+        }
+        /* 角色：小怪獸 */
+        .character-monster {
+            position: absolute;
+            bottom: 80px;
+            right: 120px;
+            font-size: 60px;
+            transition: all 0.5s ease;
+        }
+        /* 對話框氣泡 */
+        .speech-bubble {
+            position: absolute;
+            background: white;
+            color: black;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            max-width: 280px;
+            display: none;
+            z-index: 10;
+        }
+        .bubble-pipi {
+            bottom: 160px;
+            left: 90px;
+        }
+        .bubble-monster {
+            bottom: 160px;
+            right: 110px;
+        }
+        /* 控制說明區 */
+        .control-panel {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>小卡漫劇場：皮皮與小怪獸的午后對話</h2>
+    
+    <div class="stage">
+        <div class="ground"></div>
+        
+        <!-- 角色區 -->
+        <div id="pipi" class="character-pipi">👦</div>
+        <div id="monster" class="character-monster">👾</div>
+        
+        <!-- 對話框 -->
+        <div id="bubblePipi" class="speech-bubble bubble-pipi">嗨！今天天氣真好呢～</div>
+        <div id="bubbleMonster" class="speech-bubble bubble-monster">吼嚕嚕！我肚子餓了啦！</div>
+    </div>
+
+    <div class="control-panel">動畫自動播放中，請看下方或稍候解鎖第二部分！</div>
+<script>
+    // 第 1 集的劇情自動播放腳本
+    const bubblePipi = document.getElementById('bubblePipi');
+    const bubbleMonster = document.getElementById('bubbleMonster');
+    const pipi = document.getElementById('pipi');
+    const monster = document.getElementById('monster');
+
+    // 依序執行對話與動作的時間軸
+    setTimeout(() => {
+        bubblePipi.style.display = 'block';
+    }, 1000); // 第 1 秒：皮皮說話
+
+    setTimeout(() => {
+        bubblePipi.style.display = 'none';
+        bubbleMonster.style.display = 'block';
+    }, 4000); // 第 4 秒：小怪獸回應
+
+    setTimeout(() => {
+        bubbleMonster.style.display = 'none';
+        bubblePipi.style.display = 'block';
+        bubblePipi.innerText = "那...分你一塊餅乾吃好了！";
+        pipi.style.transform = 'translateX(50px)'; // 皮皮移動靠近
+    }, 7000); // 第 7 秒：皮皮送餅乾
+
+    setTimeout(() => {
+        bubblePipi.style.display = 'none';
+        bubbleMonster.style.display = 'block';
+        bubbleMonster.innerText = "太棒了！謝謝皮皮～ 🎉";
+        monster.style.transform = 'scale(1.2)'; // 小怪獸開心放大
+    }, 10000); // 第 10 秒：完結畫面
+</script>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>小卡漫劇場 第 2 集：神祕的密碼挑戰</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: white;
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+        .stage {
+            width: 850px;
+            height: 480px;
+            background: linear-gradient(to bottom, #1f4068, #162447);
+            border: 4px solid #ffcc00;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 90px;
+            background-color: #0f3460;
+            border-top: 4px solid #e94560;
+        }
+        .char {
+            position: absolute;
+            bottom: 80px;
+            font-size: 60px;
+            transition: all 0.5s ease;
+        }
+        #charA { left: 100px; }
+        #charB { right: 120px; }
+
+        .speech-bubble {
+            position: absolute;
+            background: white;
+            color: black;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            max-width: 300px;
+            display: none;
+            z-index: 10;
+        }
+        #bubbleA { bottom: 160px; left: 90px; }
+        #bubbleB { bottom: 160px; right: 110px; }
+        
+        .control-panel {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #00d2ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>小卡漫劇場 第 2 集：神祕的密碼挑戰</h2>
+    
+    <div class="stage">
+        <div class="ground"></div>
+        
+        <div id="charA" class="char">🧙‍♂️</div>
+        <div id="charB" class="char">🤖</div>
+        
+        <div id="bubbleA" class="speech-bubble">想打開這扇門，必須輸入正確的密碼！</div>
+        <div id="bubbleB" class="speech-bubble">這簡單，交給我來解碼！</div>
+    </div>
+
+    <div class="control-panel">第 2 集自動播放中...</div>
+
+<script>
+    const bA = document.getElementById('bubbleA');
+    const bB = document.getElementById('bubbleB');
+    const cA = document.getElementById('charA');
+    const cB = document.getElementById('charB');
+
+    setTimeout(() => { bA.style.display = 'block'; }, 1000);
+    setTimeout(() => { bA.style.display = 'none'; bB.style.display = 'block'; }, 4000);
+    setTimeout(() => { 
+        bB.style.display = 'none'; 
+        bA.style.display = 'block'; 
+        bA.innerText = "密碼正確！通關成功！✨";
+        cA.style.transform = 'translateY(-20px)';
+        cB.style.transform = 'translateY(-20px)';
+    }, 7000);
+</script>
+
+</body>
+</html>
